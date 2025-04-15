@@ -5,6 +5,7 @@ import logger from "morgan";
 import chalk from "chalk";
 
 // import routes
+import routes from "./routes/index.js";
 // import cors
 
 const app = express();
@@ -14,7 +15,7 @@ app.use(express.json());
 app.use(logger('dev'));
 
 // routes
-
+app.use("/api", routes);
 db.on('connected', () => {
     console.clear();
     console.log(chalk.blue('Connected to MongoDB'));
